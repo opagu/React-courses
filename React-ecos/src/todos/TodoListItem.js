@@ -1,6 +1,5 @@
 import React from "react";
 import styled from 'styled-components';
-import './TodoListItem.css';
 
 const TodoItemContainer = styled.div`
     background: #fff;
@@ -11,8 +10,13 @@ const TodoItemContainer = styled.div`
     box-shadow: 0 4px 8px grey;
 `;
 
+export const getBorderStyleForDate = (startingDate, currentDate) => 
+    (startingDate > new Date(currentDate - 86400000 * 5)
+    ? 'none'
+    : '2px solid red');
+
 const TodoItemContainerWithWarnig = styled(TodoItemContainer)`
-    border-bottom: ${props => (new Date(props.createdAt) > new Date(Date.now() - 864000 * 5)) ? 'none' : '2px solid red'};
+    border-bottom: ${props => getBorderStyleForDate(new Date(props.createdAt), Date.now())}
 `;
 
 const ButtonsContainer = styled.div`

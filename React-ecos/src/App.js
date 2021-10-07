@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { hot } from 'react-hot-loader';
 import TodoList from './todos/TodoList';
-import './App.css';
 
 const AppContainer = styled.div`
     margin: 1rem;
